@@ -1,3 +1,100 @@
-<!doctype html>
+!DOCTYPE html>
 
-<h1> Hello! </h1>
+<html>
+
+<head>
+
+  <title> Ruby Music Locator Project </title>
+  <!--the above content controls what is shown in the browser tab-->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="css_files/styles.css" type="text/css" rel="stylesheet">
+  <link href="css_files/navbar.css" type="text/css" rel="stylesheet">
+  <link href="css_files/eb_grid.css" type="text/css" rel="stylesheet">
+  <!--above is relative link to css files-->
+
+  <meta name="viewport" conttent="width=device-width, initial-scale=1.0">
+  <!-- for mobile site -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"> </script>
+  <script type="text/javascript" src="javascript_files/submit_button.js"> </script>
+  <script type="text/javascript" src="javascript_files/bootstrap.js"> </script>
+  <!--above is relative link to javascript files-->
+
+</head>
+
+
+
+<body>
+
+  <div class="navbar">
+    <a href="index.html">HOME</a>
+
+    <div class="dropdown">
+
+      <button class="dropbtn">Menu
+        <i class="fa fa-caret-down"></i>
+      </button>
+
+      <div class="dropdown-content">
+
+        <a href="challenge.html">The Challenge</a>
+        <a href="participants.html">Participants</a>
+        <a href="contact.html">Contact</a>
+        <a href="gallery.html">Gallery</a>
+
+      </div>
+
+    </div>
+
+    <a> Contact us and get involved </a>
+
+  </div>
+
+  <div class="row">
+  <!--in this container, produce row -->
+
+    <div class="col-6">
+      <img style="width: 100%;" src="images/london_paris_banner.png">
+    </div>
+
+  </div>
+
+  <div class="row">
+  <!--in this container, produce row -->
+
+    <div class="col-3">
+      <p> Please log in to Spotify below: </p>
+      <input id="email" type="email" placeholder="Enter your email here">
+      <input id="button" type="submit">
+    </div>
+
+    <div class="col-3">
+      <p> Ticketmaster </p>
+      <a href="https://www.ticketmaster.co.uk/" target="blank"><img class="transparent_effect img-rounded-corners" alt="Ticketmaster logo" src="images/tmlogo.png" height="42"></a>
+    </div>
+
+  </div>
+
+  <div class="row">
+  <!--in this container, produce row -->
+
+    <div class="col-3">
+      <p> Follow </p>
+      <a href="https://www.facebook.com/SpotifyUK" class="img-circle" target="blank"><img class="transparent_effect" alt="Facebook logo" src="images/FB.png" height="52"></a>
+      <a href="https://twitter.com/Spotify" class="img-circle" target="blank"><img class="transparent_effect" alt="Twitter logo" src="images/Twitter.png" height="52"></a>
+      <a href="https://www.instagram.com/spotify/?hl=en" class="img-circle" target="blank"><img class="transparent_effect" alt="Instagram logo" src="images/insta.png" height="52"></a>
+    </div>
+
+    <div class="col-3">
+      <p> Contribute </p>
+      <a href="https://github.com/bryonysimmons/CGF-final-project.git" target="blank"><img class="transparent_effect" alt="Github logo" src="images/github.png" height="52"></a>
+      <!--licence for social media buttons found at https://iconmonstr.com/license/-->
+    </div>
+
+  </div>
+
+</body>
+
+
+</html>

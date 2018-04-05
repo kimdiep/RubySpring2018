@@ -1,0 +1,73 @@
+.grid-container{
+  width: 100%; /*--sets width of entire grid--*/
+}
+
+/*-- our cleafix hack -- */
+.row:before, /*--ensures everthing inside the row stays inside the row--*/
+.row:after {
+  content:"";
+  display: table ;
+  clear:both;
+}
+
+[class*='col-'] {
+  float: left;
+  min-height: 1px; /*-- keep set to 1px to prevent empty columns from stacking -- */
+  width: 16.66%;
+  /*-- our gutter -- */
+  /*-- padding: 12px; -- */ /*--comment out to keep all --*/
+  background-color: transparent;
+}
+
+.col-1{ width: 16.66%; }
+.col-2{ width: 33.33%; }
+.col-3{ width: 50%;    }
+.col-4{ width: 66.66%; }
+.col-5{ width: 83.33%; }
+.col-6{ width: 100%;   }
+
+.outline, .outline *{
+  outline: 1px solid transparent;
+}
+
+/*-- some extra column content styling --*/
+[class*='col-'] > p {
+  background-color: transparent;
+  padding: 5%;
+  margin: 0;
+  text-align: center;
+  color: white;
+}
+
+/*-- Making Grid Responsive - adjusting widths of the columns for mobile layouts --*/
+/*-- double the widths of the columns for screens under 800px.--*/
+
+@media all and (max-width:800px){
+  .col-1{ width: 33.33%;  }
+  .col-2{ width: 50%;     }
+  .col-3{ width: 83.33%;  }
+  .col-4{ width: 100%;    }
+  .col-5{ width: 100%;    }
+  .col-6{ width: 100%;    }
+
+  .row .col-2:last-of-type{
+    width: 100%;
+  }
+
+  .row .col-5 ~ .col-1{
+    width: 100%;
+  }
+}
+
+/*-- For screens smaller than 800px, make all  columns except the very smallest 100%. --*/
+
+@media all and (max-width:650px){
+  .col-1{ width: 50%;     }
+  .col-2{ width: 100%;    }
+  .col-3{ width: 100%;    }
+  .col-4{ width: 100%;    }
+  .col-5{ width: 100%;    }
+  .col-6{ width: 100%;    }
+}
+
+/*-- taken from http://j4n.co/blog/Creating-your-own-css-grid-system --*/
