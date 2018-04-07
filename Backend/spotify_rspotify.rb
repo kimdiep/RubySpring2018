@@ -3,7 +3,7 @@ require 'rspotify'
 #require 'rspotify/oauth'
 #http://localhost:4567/
 
-RSpotify::authenticate("d4775da9d2c84dc697553e7c1daea5b4", "83d858dc487d4989b85bc8749009bb72")
+RSpotify::authenticate("", "")
 # Now you can access playlists in detail, browse featured content and more
 
 # Now you can access playlists in detail, browse featured content and more

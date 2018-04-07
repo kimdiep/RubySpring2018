@@ -4,7 +4,7 @@ require 'spotify-client'
 
 # Sample configuration:
 config = {
-  :access_token => 'BQBCzDuYM7u4eAvF04qtP_yaLj6M_wZ2LtJxJcpAZPOgFhvNGkNy6ksCv-u3ZcMnoC4aRbDph64lso6KQnR51BV6TWC3bwDIgpFzMAH44x-56TTfxLOLmsxtc-QWl4CzNBY9NStC224UdJGSNVPBwANMy2Y',  # initialize the client with an access token to perform authenticated calls
+  :access_token => '',  # initialize the client with an access token to perform authenticated calls
   :raise_errors => true,  # choose between returning false or raising a proper exception when API calls fails
 
   # Connection properties
