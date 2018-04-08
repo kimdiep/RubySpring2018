@@ -1,25 +1,14 @@
 require 'sinatra'
 require 'rspotify'
-#require 'rspotify/oauth'
 #http://localhost:4567/
 
+#Demo Purposes: Provide client_id and client_secret for Spotify user kim_diep
 RSpotify::authenticate("", "")
-# Now you can access playlists in detail, browse featured content and more
 
-# Now you can access playlists in detail, browse featured content and more
-me = RSpotify::User.find('kim_diep')
-@id = me.id
-print me.following(type: 'artist', limit: 50)
-#me.playlists #=> (Playlist array)
-#print me.playlists
-#me.following
-#print me.following
-
-
-# Get recommendations
-#recommendations = RSpotify::Recommendations.generate(seed_genres: ['country'])
-#recommendations.tracks
-#print recommendations.tracks
+# Access user RSpotify::Playlist for specific playlist information
+#user = RSpotify::User.find('kim_diep')
+#userPlaylists = user.playlists #=> (Playlist array)
+#print userPlaylists
 
 #Present in erb
 get('/') do
