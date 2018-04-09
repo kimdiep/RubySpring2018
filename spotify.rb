@@ -47,14 +47,16 @@ require "rspotify"
 # end
 
 
-RSpotify.authenticate("33a53c8aa8a24c52b23c4afc13919083", "1dcb63808a7c453daa6150b28690e136")
+
+get ("/") do
+  RSpotify.authenticate("33a53c8aa8a24c52b23c4afc13919083", "1dcb63808a7c453daa6150b28690e136")
 
 artists = RSpotify::Artist.search('Arctic Monkeys')
 
 arctic_monkeys = artists.first
 print arctic_monkeys.genres 
-album = arctic_monkeys.genres
 
-get ("/") do
+@album = arctic_monkeys.genres 
+
   erb :spotify
 end 
