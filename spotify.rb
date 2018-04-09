@@ -53,7 +53,7 @@ artists = RSpotify::Artist.search('Arctic Monkeys')
 
 arctic_monkeys = artists.first
 print arctic_monkeys.genres 
-
+album = arctic_monkeys.genres
 
 get ("/") do
   erb :spotify
