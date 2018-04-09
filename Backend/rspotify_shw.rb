@@ -3,11 +3,13 @@ require "omniauth-spotify"
 require "spotify-client"
 require "rspotify"
 
+=begin
 https://github.com/icoretech/spotify-client
 https://developer.spotify.com/web-api/using-scopes/
 https://github.com/icoretech/omniauth-spotify
 https://github.com/omniauth/omniauth/wiki/Sinatra-Example
 https://github.com/guilhermesad/rspotify
+=end
 
 use Rack::Session::Cookie, key: 'N&wedhSDF',
   domain: "localhost",
@@ -19,7 +21,7 @@ use OmniAuth::Builder do
 end
 
 get '/auth/:provider/callback' do
-  
+
   config = {
     :access_token => request.env['omniauth.auth'].credentials.token,  # initialize the client with an access token to perform authenticated calls
     :raise_errors => true,  # choose between returning false or raising a proper exception when API calls fails
@@ -39,7 +41,7 @@ get '/auth/:provider/callback' do
 end
 
 
-  
+
 print "hello \n"
 get ("/") do
   erb "
@@ -51,7 +53,7 @@ end
 # artists = RSpotify::Artist.search('Arctic Monkeys')
 
 # arctic_monkeys = artists.first
-# print arctic_monkeys.genres 
+# print arctic_monkeys.genres
 
 # me = RSpotify::User.find('kim_diep')
 # # print "\nhello  ----> \n", me.playlists,"\n" #=> (Playlist array)

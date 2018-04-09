@@ -11,13 +11,14 @@ require 'json'
 #Personalised Spotify API - user's top tracks
 #https://jhawthorn.github.io/curl-to-ruby/
 #https://developer.spotify.com/web-api/get-users-top-artists-and-tracks/
-#https://beta.developer.spotify.com/console/get-current-user-top-artists-and-tracks/?type=artists&time_range=medium_term&limit=10&offset=5
+#https://beta.developer.spotify.com/console/get-current-user-top-artists-and-tracks/?type=artists&time_range=long_term&limit=10&offset=0
+#Returns 10 entries ; index of first entity to return is 0; long_term (calculated from several years of data and including all new data as it becomes available)
 
-uri = URI.parse("https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=10&offset=5")
+uri = URI.parse("https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=10&offset=0")
 request = Net::HTTP::Get.new(uri)
 request.content_type = "application/json"
 request["Accept"] = "application/json"
-request["Authorization"] = "Bearer BQADCd512KkYW9X-WV4P_A9fdOlm_N7Lxp_8vAErRypivfIabzMABxunw3UYHvzh6mo-e8NxXVp9F7w_hQAxopJsbJ0pAYMPI5Ot8gClW7oxQQmlr74PHMXieD4s64aRD_5MGEYlJe0obGop"
+request["Authorization"] = "Bearer BQAF5PXu2MjP83DPcTuB091xxt8s48Ea7lYq0pqk-kn7YmMT311z6kQ_SnItLe2Wd3CPQ6tfmVWj89XvULR5VRNGJ6I9rhu2B51DMeuhlDa7ll1L6Yx040Hii_GNkBO99lIAurx4Gc19r0vg"
 
 req_options = {
   use_ssl: uri.scheme == "https",
@@ -27,11 +28,17 @@ response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
   http.request(request)
 end
 
-# responses
+# Here is the response
 # response.code
 # response.body
 obj = JSON.parse(response.body)
-#@name = obj['name']
+print obj
+
+obj.each do |sub_array| sub_array.each do |name , artist|
+    puts "#{name}, #{artist}"
+end
+end
+
 
 ##############################
 #uri = URI.parse("https://api.spotify.com/v1/kim_diep/top/artists")
