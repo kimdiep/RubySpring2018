@@ -54,6 +54,12 @@ artists = RSpotify::Artist.search('Arctic Monkeys')
 arctic_monkeys = artists.first
 print arctic_monkeys.genres 
 
+artist = RSpotify::Artist.find('7Ln80lUS6He07XvHI8qqHH')
+artist.class #=> RSpotify::Artist
+name = artist.name 
+print name
+
+
 
 get ("/") do
   erb :spotify

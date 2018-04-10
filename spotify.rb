@@ -1,62 +1,63 @@
 require "sinatra"
-require "omniauth-spotify"
-require "spotify-client"
 require "rspotify"
-# https://github.com/icoretech/spotify-client
-# https://developer.spotify.com/web-api/using-scopes/
-# https://github.com/icoretech/omniauth-spotify
-# https://github.com/omniauth/omniauth/wiki/Sinatra-Example
-# https://github.com/guilhermesad/rspotify
-
-# use Rack::Session::Cookie, key: 'N&wedhSDF',
-#   domain: "localhost",
-#   path: '/',
-#   expire_after: 14400,
-#   secret: '*&(^B234'
-# use OmniAuth::Builder do
-#   provider :spotify, '33a53c8aa8a24c52b23c4afc13919083', '1dcb63808a7c453daa6150b28690e136', scope: 'user-read-private user-read-birthdate user-read-email'
-# end
-
-# get '/auth/:provider/callback' do
-  
-#   config = {
-#     :access_token => request.env['omniauth.auth'].credentials.token,  # initialize the client with an access token to perform authenticated calls
-#     :raise_errors => true,  # choose between returning false or raising a proper exception when API calls fails
-
-#     # Connection properties
-#     :retries       => 0,    # automatically retry a certain number of times before returning
-#     :read_timeout  => 10,   # set longer read_timeout, default is 10 seconds
-#     :write_timeout => 10,   # set longer write_timeout, default is 10 seconds
-#     :persistent    => false # when true, make multiple requests calls using a single persistent connection. Use +close_connection+ method on the client to manually clean up sockets
-#   }
-#   client = Spotify::Client.new(config)
-
-#   print client.me
-
-#   erb "<h1>#{params[:provider]}</h1>
-#   <pre>#{JSON.pretty_generate(request.env['omniauth.auth'])}</pre>"
-# end
-
-
-  
-# print "hello \n"
-# get ("/") do
-#   erb "
-#     <a href='http://localhost:4567/auth/spotify'>Login with Spotify</a><br>
-#   "
-# end
-
-
 
 get ("/") do
-  RSpotify.authenticate("33a53c8aa8a24c52b23c4afc13919083", "1dcb63808a7c453daa6150b28690e136")
+print "hello"
+  erb :landingpage, layout: :layout
+end 
 
-artists = RSpotify::Artist.search('Arctic Monkeys')
+get ("/about") do
+  erb :about, layout: :layout
+end
 
+get ("/contact") do
+  erb :contact, layout: :layout
+end
+
+get ("/event") do
+  erb :event, layout: :layout
+end
+
+get ("/music") do
+RSpotify.authenticate("33a53c8aa8a24c52b23c4afc13919083", "1dcb63808a7c453daa6150b28690e136")
+artistlist = RSpotify::Artist.search('Arctic', limit:3)
+@top_artists = artistlist
+@firstartist = artistlist[1]
+@firstartist1 = artistlist[2]
+@firstartist2 = artistlist[3]
+
+artists = RSpotify::Artist.search('Pitbull')
 arctic_monkeys = artists.first
 print arctic_monkeys.genres 
-
 @album = arctic_monkeys.genres 
 
-  erb :spotify
-end 
+
+artist = RSpotify::Artist.find('0TnOYISbd1XYRBk9myaseg')
+artist.class #=> RSpotify::Artist
+artist_name = artist.name 
+@name = artist_name
+
+link_artist = artist.external_urls
+@link = link_artist['spotify']
+
+images_artist = artist.images.first['url']
+@image = images_artist
+
+album_artist = artist.albums.first
+album_name = album_artist.name
+@album_name = album_name
+
+tracks_artist = album_artist.tracks
+@tracks = tracks_artist
+first_track = tracks_artist.first
+@first_track_url = first_track.preview_url
+@first_track_name = first_track.name
+
+second_track = tracks_artist[2]
+@second_track_url = second_track.preview_url
+@second_track_name = second_track.name
+
+@albums_list = RSpotify::Album.new_releases(limit: 10)
+@name_text = @albums_list.first.name
+erb :music, layout: :layout
+end
