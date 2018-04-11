@@ -1,3 +1,13 @@
 body{
-background: gainsboro;
+background: black;
+font-family: 'Courier New', Courier, monospace;
+color: goldenrod;
+text-align: center;
+}
+.pure-menu-link {
+  color: goldenrod;
+}
+
+.music-page{
+  margin-top: 50px;
 }
