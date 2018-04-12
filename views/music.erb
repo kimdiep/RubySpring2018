@@ -1,42 +1,19 @@
-<div class="music-page">
-<h1>NEW RELEASES!</h1>
-<div class="row">
+<div class="container-fluid body-content-wrapper">
 
-<% @albums_list.each do |album| %>
-  <div class="col-lg-4">
-    <img src="<%= album.images.first['url']%>"height="300" width="300">
-    <p><a href="<%= album.external_urls['spotify'] %>"><%= album.name %></a></p>
-    <p><a href="<%= album.artists.first.external_urls['spotify'] %>"><%= album.artists.first.name %></a></p>
-    <p> Release Date: <%= album.release_date %></p>
-    <hr>
-  </div>  
-<% end %>
+  <div class="music-page">
+    <h1>NEW RELEASES!</h1>
+    <div class="row">
 
-</div>
+      <% @albums_list.each do |album| %>
+        <div class="col-lg-4">
+          <img src="<%= album.images.first['url']%>"height="300" width="300">
+          <p><a href="<%= album.external_urls['spotify'] %>"><%= album.name %></a></p>
+          <p><a href="<%= album.artists.first.external_urls['spotify'] %>"><%= album.artists.first.name %></a></p>
+          <p> Release Date: <%= album.release_date %></p>
+          <hr>
+        </div>  
+      <% end %>
 
-<h1> Artist album's name :<%= @album  %> </h1>
-  <h4> name: <%= @name %></h4>
-
-  <h4> link: <%= @link %></h4>
-  <a href="<%= @link %>">pit <%= @name %></a>
-
-  <h4> image: <%= @image %></h4>
-  <img src="<%= @image %>" height="42" width="42" >
-
-  <h4> album name: <%= @album_name %></h4>
-
-  <h4> track:</h4>
-  <a href="<%= @first_track_url %>">1 .<%= @first_track_name %></a>
-  <a href="<%= @second_track_url %>">2 .<%= @second_track_name %></a>
-  <%=@albums_list.first.name%>
-  <%=@name_text%>
-<table>
-<% @top_artists.each do |artist| %>
- <tr>
-    <td>
-      <%= artist.name %>
-    </td>
-  </tr>
-<% end %>
-</table>
+    </div>
+  </div>
 </div>
