@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MUSIC WORLD!</title>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="stylesheets/style.css">  
+
+</head>
+
+<body>
+  <nav class="pure-menu pure-menu-horizontal">
+    <a href="/" class="pure-menu-heading pure-menu-link"><i class="fas fa-music fa-spin fa-lg"></i> MusicWorld!</a>
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item">
+        <a href="/about" class="pure-menu-link">About</a>
+      </li>
+      <li class="pure-menu-item">
+        <a href="/music" class="pure-menu-link">Music</a>
+      </li>
+      <li class="pure-menu-item">
+        <a href="/event" class="pure-menu-link">Events</a>
+      </li>
+      <li class="pure-menu-item">
+        <a href="/contact" class="pure-menu-link">Contact</a>
+      </li>
+      <li class="pure-menu-item">
+        <form action="/search" method="post">
+          <select name="query">
+            <option value="artist">Artist</option>
+            <option value="album">Album</option>
+            <option value="track">Track</option>
+          </select>
+          <input type="text" name="querystring" id="search" placeholder="Artist,album,track..." style="background="red">
+          <button type="submit">Search</button>
+        </form>   
+      </li>
+    </ul>
+   
+  </nav>
+  <div id='main'>
+      <%= yield %>
+  </div>
+  <hr>
+  <footer class="container-fluid copy-right">
+    <a href="#">
+      <i class="fab fa-spotify fa-lg"></i>
+    </a>
+    <a href="#">
+      <i class="fab fa-twitter fa-lg"></i>
+    </a>
+    <a href="#">
+      <i class="fab fa-facebook-square fa-lg"></i>
+    </a>
+    <a href="#">
+      <i class="fab fa-instagram fa-lg"></i>
+    </a>
+
+    <br>
+    <p>&copy; CFG:2018</p>
+  </footer>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
